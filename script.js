@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactBtn = document.getElementById('contact-btn');
     if (contactBtn) {
         contactBtn.addEventListener('click', (e) => {
-            e.preventDefault();
             const email = 'alexandr.pi.art@gmail.com'; 
             navigator.clipboard.writeText(email).then(() => {
                 const originalText = contactBtn.innerText;

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     lightbox.addEventListener("click", function(e) {
-        if (e.target === lightbox) {
+        if (e.target === lightbox || e.target === lightboxImg) {
             lightbox.style.display = "none";
         }
     });

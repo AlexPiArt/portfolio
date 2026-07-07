@@ -204,7 +204,7 @@ body {
 /* Commercial Projects Grid V2 (Poster Strips) */
 .commercial-grid-v2 {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 60px;
 }
 

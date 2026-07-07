@@ -696,3 +696,33 @@ body {
     position: relative;
     z-index: 10;
 }
+/* Emotional Map block for Secret Level */
+.emotional-map {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 30px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.emotion-item {
+    display: flex;
+    flex-direction: column;
+}
+.emotion-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #f1f1f1;
+    margin-bottom: 0.25rem;
+}
+.emotion-desc {
+    font-size: 0.95rem;
+    color: #888;
+    line-height: 1.5;
+}
+@media (max-width: 600px) {
+    .emotional-map {
+        grid-template-columns: 1fr;
+    }
+}

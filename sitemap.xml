@@ -5,11 +5,11 @@
 >
   <url>
     <loc>https://alexpi.art/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://alexpi.art/alex-pi-concept-artist-portrait.jpg</image:loc>
+      <image:loc>https://alexpi.art/alex-pi-creative-director-portrait.jpg</image:loc>
       <image:title>Alex Pi, Creative Director and Concept Artist</image:title>
     </image:image>
   </url>
@@ -42,5 +42,11 @@
     <loc>https://alexpi.art/ss-rajamouli-teaser.html</loc>
     <lastmod>2026-07-06</lastmod>
     <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://alexpi.art/lak.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

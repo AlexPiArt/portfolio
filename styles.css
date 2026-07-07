@@ -662,3 +662,33 @@ body {
 .hero-sequence img:nth-child(3) { animation-delay: 2s; }
 .hero-sequence img:nth-child(4) { animation-delay: 3s; }
 @keyframes cycleSequence { 0%, 25% { opacity: 1; } 25.01%, 100% { opacity: 0; } }
+/* Animated Posters Additions */
+.commercial-grid-v2 .poster-wrap {
+    position: relative;
+    background-color: transparent !important;
+    overflow: visible !important;
+}
+.animated-poster-img {
+    transform: scale(1.22) translateY(-10%); 
+    transform-origin: center top;
+    filter: none !important; 
+    width: 100%;
+}
+#dead-space-animated-poster {
+    transition: opacity 40ms ease-out;
+}
+.hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+}
+.commercial-item-v2:hover .hover-img {
+    opacity: 1;
+}
+.commercial-item-v2 h4, 
+.commercial-item-v2 span {
+    position: relative;
+    z-index: 10;
+}

@@ -1,0 +1,418 @@
+:root {
+    --bg-color: #0a0a0c;
+    --text-primary: #f0f0f0;
+    --text-secondary: #999999;
+    --border-color: #2a2a2a;
+    --accent: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+.layout-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px;
+}
+
+/* Header Profile */
+.profile-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 70px; 
+    margin-bottom: 70px;
+}
+
+.profile-avatar {
+    flex-shrink: 0;
+}
+
+.profile-avatar img {
+    width: 220px; 
+    height: 220px;
+    border-radius: 2px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.profile-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 700px;
+}
+
+.profile-title-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 3.2rem;
+    color: var(--text-primary);
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.job-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.job-tags {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* Increased spacing for text blocks */
+.bio {
+    font-size: 1.1rem; 
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Credits Section */
+.credits-section {
+    margin-bottom: 40px;
+}
+
+.credits-section h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.credits-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.credits-list li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 4px;
+}
+.credits-list li:last-child {
+    border-bottom: none;
+}
+
+.credits-list strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Clients Section */
+.clients-section {
+    margin-bottom: 40px;
+}
+
+.clients-section h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.clients-section p {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+/* Capabilities Section */
+.capabilities-section {
+    margin-bottom: 45px;
+}
+
+.capabilities-section h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.capabilities-section p {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.link-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 0;
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.link-btn.primary-btn {
+    background: #e0e0e0;
+    color: #000;
+    border-color: #e0e0e0;
+}
+
+.link-btn.primary-btn:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.link-btn:not(.primary-btn):hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #555;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.social-links a:hover {
+    border-bottom: 1px solid var(--text-primary);
+}
+
+/* Portfolio Section Headers */
+.portfolio-section {
+    margin-top: 50px;
+}
+
+.personal-section {
+    margin-top: 80px;
+}
+
+.section-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+}
+
+/* Portfolio Grids */
+.portfolio-grid {
+    display: grid;
+    gap: 8px; 
+}
+
+.commercial-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.personal-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    background-color: #111;
+    cursor: pointer;
+}
+
+.commercial-item {
+    aspect-ratio: 2 / 3; /* Standard movie poster ratio */
+}
+
+.personal-item {
+    aspect-ratio: 16 / 10; /* Cinematic concept art ratio */
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Grid Overlay (Hover Effect) */
+.grid-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    text-align: left;
+    padding: 25px 20px;
+}
+
+.grid-overlay h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+    transform: translateY(15px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grid-overlay span {
+    font-size: 0.85rem;
+    color: #cccccc;
+    transform: translateY(15px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0.05s;
+}
+
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+
+.grid-item:hover .grid-overlay {
+    opacity: 1;
+}
+
+.grid-item:hover .grid-overlay h4,
+.grid-item:hover .grid-overlay span {
+    transform: translateY(0);
+}
+
+/* Footer */
+.footer {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+.footer a:hover { color: var(--text-primary); }
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.98);
+}
+
+.lightbox-content {
+    max-width: 95%;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.95); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 45px;
+    color: #888;
+    font-size: 45px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    color: #fff;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .profile-header { gap: 40px; }
+    .profile-avatar img { width: 160px; height: 160px; }
+    .name { font-size: 2.5rem; }
+    
+    .commercial-grid { grid-template-columns: repeat(2, 1fr); }
+    .personal-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    .profile-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+@media (max-width: 500px) {
+    .commercial-grid { grid-template-columns: 1fr; }
+    .personal-grid { grid-template-columns: 1fr; }
+    .cta-buttons { flex-direction: column; width: 100%; }
+    .link-btn { width: 100%; }
+}

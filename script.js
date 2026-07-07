@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let timeoutId = null;
 
         function setFrame(frame, opacity = 1, smooth = false) {
-            deadSpaceImage.style.transition = smooth ? "opacity 90ms ease-out" : "opacity 20ms linear";
+            deadSpaceImage.style.transition = smooth ? "opacity 90ms ease-out, filter 0.3s ease" : "opacity 20ms linear, filter 0.3s ease";
             deadSpaceImage.src = frames[frame];
             deadSpaceImage.style.opacity = opacity;
         }

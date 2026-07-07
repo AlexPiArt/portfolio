@@ -671,8 +671,12 @@ body {
 .animated-poster-img {
     transform: scale(1.22) translateY(-10%); 
     transform-origin: center top;
-    filter: none !important; 
+    filter: brightness(0.85); 
     width: 100%;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.commercial-item-v2:hover .animated-poster-img {
+    filter: brightness(1);
 }
 #dead-space-animated-poster {
     transition: opacity 40ms ease-out;

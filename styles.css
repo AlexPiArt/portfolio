@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --bg-color: #0a0a0c;
     --text-primary: #f0f0f0;
     --text-secondary: #999999;
@@ -13,6 +13,7 @@
 }
 
 body {
+    overflow-x: hidden;
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-primary);
@@ -409,7 +410,7 @@ body {
 
 /* Project Page Styles */
 .project-wrapper {
-    max-width: 1000px;
+    max-width: 1100px;
 }
 
 .project-content {
@@ -722,3 +723,111 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Personal Work Media Stack */
+.project-media-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+    width: calc(100vw - 60px);
+    max-width: 1340px;
+    flex-shrink: 0;
+}
+.project-media-stack img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
+}
+
+/* Video Container for 16:9 Aspect Ratio Embeds */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* (9/16) * 90vw? No, padding bottom is based on width of container! */
+    height: 0;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    width: calc(100vw - 60px);
+    max-width: 1340px;
+    flex-shrink: 0;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Side Navigation Arrows */
+.nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(10, 10, 12, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+.nav-arrow:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-50%) scale(1.1);
+}
+.nav-arrow-left {
+    left: max(20px, calc(50vw - 840px));
+}
+.nav-arrow-right {
+    right: max(20px, calc(50vw - 840px));
+}
+.nav-arrow svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@media (max-width: 768px) {
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    .nav-arrow-left {
+        left: 10px;
+    }
+    .nav-arrow-right {
+        right: 10px;
+    }
+    .nav-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+
+

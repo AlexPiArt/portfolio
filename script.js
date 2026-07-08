@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (index < 0) index = galleryImages.length - 1;
                 if (index >= galleryImages.length) index = 0;
                 currentImageIndex = index;
-                lightboxImg.src = galleryImages[currentImageIndex].src;
+                const img = galleryImages[currentImageIndex];
+                lightboxImg.src = img.getAttribute('data-full') || img.src;
             }
 
             galleryImages.forEach((img, index) => {
@@ -68,12 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         } else {
-            // Standard Lightbox without Gallery Navigation
             galleryImages.forEach(img => {
                 img.style.cursor = "zoom-in";
                 img.addEventListener("click", function() {
                     lightbox.style.display = "flex";
-                    lightboxImg.src = this.src;
+                    lightboxImg.src = this.getAttribute('data-full') || this.src;
                 });
             });
 

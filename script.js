@@ -14,34 +14,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lightbox Logic
+    // Lightbox Logic with Conditional Gallery Navigation
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".lightbox-close");
-    const galleryImages = document.querySelectorAll(".gallery-img");
+    const galleryImages = Array.from(document.querySelectorAll(".gallery-img"));
+    const isArticle = document.querySelector('.project-header') !== null;
+    let currentImageIndex = 0;
 
-    galleryImages.forEach(img => {
-        img.addEventListener("click", function() {
-            lightbox.style.display = "flex";
-            lightboxImg.src = this.src;
+    if (lightbox && lightboxImg && galleryImages.length > 0) {
+        if (isArticle) {
+            // Create navigation arrows dynamically
+            let prevBtn = document.createElement('div');
+            prevBtn.className = 'lightbox-nav lightbox-prev';
+            prevBtn.innerHTML = '&#10094;';
+            lightbox.appendChild(prevBtn);
+
+            let nextBtn = document.createElement('div');
+            nextBtn.className = 'lightbox-nav lightbox-next';
+            nextBtn.innerHTML = '&#10095;';
+            lightbox.appendChild(nextBtn);
+
+            function showImage(index) {
+                if (index < 0) index = galleryImages.length - 1;
+                if (index >= galleryImages.length) index = 0;
+                currentImageIndex = index;
+                lightboxImg.src = galleryImages[currentImageIndex].src;
+            }
+
+            galleryImages.forEach((img, index) => {
+                img.style.cursor = "zoom-in";
+                img.addEventListener("click", function() {
+                    lightbox.style.display = "flex";
+                    showImage(index);
+                });
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showImage(currentImageIndex - 1);
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showImage(currentImageIndex + 1);
+            });
+
+            document.addEventListener("keydown", function(e) {
+                if (lightbox.style.display === "flex") {
+                    if (e.key === "Escape") lightbox.style.display = "none";
+                    if (e.key === "ArrowLeft") showImage(currentImageIndex - 1);
+                    if (e.key === "ArrowRight") showImage(currentImageIndex + 1);
+                }
+            });
+        } else {
+            // Standard Lightbox without Gallery Navigation
+            galleryImages.forEach(img => {
+                img.style.cursor = "zoom-in";
+                img.addEventListener("click", function() {
+                    lightbox.style.display = "flex";
+                    lightboxImg.src = this.src;
+                });
+            });
+
+            document.addEventListener("keydown", function(e) {
+                if (lightbox.style.display === "flex" && e.key === "Escape") {
+                    lightbox.style.display = "none";
+                }
+            });
+        }
+
+        // Shared Close Logic
+        closeBtn.addEventListener("click", function() {
+            lightbox.style.display = "none";
         });
-    });
 
-    closeBtn.addEventListener("click", function() {
-        lightbox.style.display = "none";
-    });
-
-    lightbox.addEventListener("click", function(e) {
-        if (e.target === lightbox || e.target === lightboxImg) {
-            lightbox.style.display = "none";
-        }
-    });
-
-    document.addEventListener("keydown", function(e) {
-        if (e.key === "Escape" && lightbox.style.display === "flex") {
-            lightbox.style.display = "none";
-        }
-    });
+        lightbox.addEventListener("click", function(e) {
+            if (e.target === lightbox || e.target === lightboxImg) {
+                lightbox.style.display = "none";
+            }
+        });
+    }
 
     // Animated Dead Space Poster Logic
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -105,12 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function playRandomFlicker() {
-            // Determine if we should mix Frame 4 with background (opacity drop) and smooth transitions
             const isSoftBlackout = Math.random() > 0.5;
             const darkOpacity = isSoftBlackout ? random(0.5, 0.85) : 1; 
 
             const patterns = [
-                // Small dim flicker (70% chance)
                 {
                     weight: 70,
                     sequence: [
@@ -119,14 +170,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         { frame: "dim", duration: random(40, 80), smooth: false }
                     ]
                 },
-                // Hard blackout short (10% chance)
                 {
                     weight: 10,
                     sequence: [
                         { frame: "dark", duration: random(70, 120), opacity: darkOpacity, smooth: isSoftBlackout }
                     ]
                 },
-                // Hard blackout double (15% chance)
                 {
                     weight: 15,
                     sequence: [
@@ -135,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         { frame: "dark", duration: random(40, 80), opacity: darkOpacity, smooth: isSoftBlackout }
                     ]
                 },
-                // Hard blackout long (5% chance)
                 {
                     weight: 5,
                     sequence: [
@@ -144,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         { frame: "dark", duration: random(50, 90), opacity: darkOpacity, smooth: false }
                     ]
                 },
-                // Horror Pause - 1 to 2 seconds of pure darkness (5% chance)
                 {
                     weight: 5,
                     sequence: [

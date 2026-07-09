@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (index < 0) index = galleryImages.length - 1;
                 if (index >= galleryImages.length) index = 0;
                 currentImageIndex = index;
-                const img = galleryImages[currentImageIndex];
-                lightboxImg.src = img.getAttribute('data-full') || img.src;
+                lightboxImg.src = galleryImages[currentImageIndex].src;
             }
 
             galleryImages.forEach((img, index) => {
@@ -69,11 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         } else {
+            // Standard Lightbox without Gallery Navigation
             galleryImages.forEach(img => {
                 img.style.cursor = "zoom-in";
                 img.addEventListener("click", function() {
                     lightbox.style.display = "flex";
-                    lightboxImg.src = this.getAttribute('data-full') || this.src;
+                    lightboxImg.src = this.src;
                 });
             });
 
@@ -98,10 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animated Dead Space Poster Logic
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const deadSpaceImage = document.getElementById("dead-space-animated-poster");
+    const deadSpaceOverlay = document.querySelector("#dead-space-card .hover-img");
+    const deadSpaceBase = document.querySelector("#dead-space-card .base-img");
     const deadSpaceCard = document.getElementById("dead-space-card");
 
-    if (deadSpaceImage && deadSpaceCard) {
+    if (deadSpaceOverlay && deadSpaceBase && deadSpaceCard) {
         const frames = {
             idle: "posters/animated/DS/1.png",
             hover: "posters/animated/DS/2.png",
@@ -113,9 +114,27 @@ document.addEventListener('DOMContentLoaded', () => {
         let timeoutId = null;
 
         function setFrame(frame, opacity = 1, smooth = false) {
-            deadSpaceImage.style.transition = smooth ? "opacity 90ms ease-out, filter 0.3s ease" : "opacity 20ms linear, filter 0.3s ease";
-            deadSpaceImage.src = frames[frame];
-            deadSpaceImage.style.opacity = opacity;
+            const transitionStyle = smooth ? "opacity 90ms ease-out, filter 0.3s ease" : "opacity 20ms linear, filter 0.3s ease";
+            
+            deadSpaceOverlay.style.transition = transitionStyle;
+            deadSpaceBase.style.transition = transitionStyle;
+
+            if (frame === 'hover') {
+                // For frame 2 (which has shadows), hide base image so shadows don't double
+                deadSpaceOverlay.src = frames[frame];
+                deadSpaceOverlay.style.opacity = opacity;
+                deadSpaceBase.style.opacity = 1 - opacity;
+            } else if (frame === 'dim' || frame === 'dark') {
+                // For frames 3 and 4 (which have NO shadows), show base image underneath!
+                deadSpaceOverlay.src = frames[frame];
+                deadSpaceOverlay.style.opacity = opacity;
+                deadSpaceBase.style.opacity = 1;
+            } else {
+                // Idle state
+                deadSpaceOverlay.src = frames[frame];
+                deadSpaceOverlay.style.opacity = 0;
+                deadSpaceBase.style.opacity = 1;
+            }
         }
 
         function random(min, max) {

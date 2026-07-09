@@ -16,6 +16,8 @@ body {
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
+    background-image: radial-gradient(circle at top, #1c1c1c 0%, var(--bg-color) 800px);
+    background-repeat: no-repeat;
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
 }
@@ -226,12 +228,9 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.85); /* Slight dim to avoid glaring */
-    transition: filter 0.3s ease;
 }
 
 .commercial-item-v2:hover .poster-wrap img {
-    filter: brightness(1);
 }
 
 .commercial-item-v2 h4 {
@@ -696,17 +695,21 @@ body {
 .hero-sequence img:nth-child(3) { animation-delay: 2s; }
 .hero-sequence img:nth-child(4) { animation-delay: 3s; }
 @keyframes cycleSequence { 0%, 25% { opacity: 1; } 25.01%, 100% { opacity: 0; } }
+@keyframes cycleSequence { 0%, 25% { opacity: 1; } 25.01%, 100% { opacity: 0; } }
 /* Animated Posters Additions */
 .commercial-grid-v2 .poster-wrap {
     position: relative;
     background-color: transparent !important;
     overflow: visible !important;
+    margin-bottom: 24px; /* Push text down to compensate for poster scale */
 }
 .animated-poster-img {
-    transform: scale(1.22) translateY(-10%); 
-    transform-origin: center top;
+    position: relative;
     width: 100%;
-    transition: opacity 0.3s ease;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.21);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 #dead-space-animated-poster {
     transition: opacity 40ms ease-out;
@@ -720,6 +723,14 @@ body {
 }
 .commercial-item-v2:hover .hover-img {
     opacity: 1;
+}
+.commercial-item-v2:hover .base-img {
+    opacity: 0;
+}
+/* JS controls Dead Space */
+#dead-space-card:hover .hover-img,
+#dead-space-card:hover .base-img {
+    opacity: initial;
 }
 .commercial-item-v2 h4, 
 .commercial-item-v2 span {

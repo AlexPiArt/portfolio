@@ -104,10 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (deadSpaceOverlay && deadSpaceBase && deadSpaceCard) {
         const frames = {
-            idle: "posters/animated/DS/1.png",
-            hover: "posters/animated/DS/2.png",
-            dim: "posters/animated/DS/3.png",
-            dark: "posters/animated/DS/4.png"
+            idle: "posters/animated/DS/1.png?v=2",
+            hover: "posters/animated/DS/2.png?v=2",
+            dim: "posters/animated/DS/3.png?v=2",
+            dark: "posters/animated/DS/4.png?v=2"
         };
 
         let isHover = false;

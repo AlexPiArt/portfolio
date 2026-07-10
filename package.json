@@ -1,0 +1,27 @@
+{
+  "name": "website_public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seo:index-check": "node scripts/check-index-status.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexPiArt/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexPiArt/portfolio/issues"
+  },
+  "homepage": "https://github.com/AlexPiArt/portfolio#readme",
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "googleapis": "^173.0.0",
+    "xml2js": "^0.6.2"
+  }
+}

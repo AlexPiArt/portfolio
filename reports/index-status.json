@@ -1,0 +1,72 @@
+[
+  {
+    "URL": "/",
+    "HTTP": 200,
+    "Sitemap": "Yes",
+    "Noindex": "No",
+    "Canonical": "Match",
+    "Google Verdict": "SKIP (No Auth)",
+    "Coverage": "N/A",
+    "Bing": "Manual Check Needed"
+  },
+  {
+    "URL": "/about.html",
+    "HTTP": 200,
+    "Sitemap": "Yes",
+    "Noindex": "No",
+    "Canonical": "Match",
+    "Google Verdict": "SKIP (No Auth)",
+    "Coverage": "N/A",
+    "Bing": "Manual Check Needed"
+  },
+  {
+    "URL": "/marvel-rivals.html",
+    "HTTP": 200,
+    "Sitemap": "Yes",
+    "Noindex": "No",
+    "Canonical": "Match",
+    "Google Verdict": "SKIP (No Auth)",
+    "Coverage": "N/A",
+    "Bing": "Manual Check Needed"
+  },
+  {
+    "URL": "/dead-space.html",
+    "HTTP": 200,
+    "Sitemap": "Yes",
+    "Noindex": "No",
+    "Canonical": "Match",
+    "Google Verdict": "SKIP (No Auth)",
+    "Coverage": "N/A",
+    "Bing": "Manual Check Needed"
+  },
+  {
+    "URL": "/secret-level.html",
+    "HTTP": 200,
+    "Sitemap": "Yes",
+    "Noindex": "No",
+    "Canonical": "Match",
+    "Google Verdict": "SKIP (No Auth)",
+    "Coverage": "N/A",
+    "Bing": "Manual Check Needed"
+  },
+  {
+    "URL": "/ss-rajamouli-teaser.html",
+    "HTTP": 200,
+    "Sitemap": "Yes",
+    "Noindex": "No",
+    "Canonical": "Match",
+    "Google Verdict": "SKIP (No Auth)",
+    "Coverage": "N/A",
+    "Bing": "Manual Check Needed"
+  },
+  {
+    "URL": "/lak.html",
+    "HTTP": 200,
+    "Sitemap": "Yes",
+    "Noindex": "No",
+    "Canonical": "Match",
+    "Google Verdict": "SKIP (No Auth)",
+    "Coverage": "N/A",
+    "Bing": "Manual Check Needed"
+  }
+]

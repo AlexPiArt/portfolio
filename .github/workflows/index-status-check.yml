@@ -1,0 +1,35 @@
+name: SEO Index Monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * 1' # Runs at 08:00 UTC every Monday
+
+jobs:
+  check-indexing:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Run SEO Index Check
+        run: npm run seo:index-check
+        env:
+          GSC_CREDENTIALS_JSON: ${{ secrets.GSC_CREDENTIALS_JSON }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+
+      - name: Commit and push reports
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add reports/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(seo): update index status report" && git push)
